@@ -47,8 +47,21 @@ export default class ButtonUI extends Plugin {
       const bgColor = formView.backgroundInputColorView.fieldView.element.value;
       const textColor = formView.titleInputColorView.fieldView.element.value;
 
+      // Validation 1: Check if values are not empty.
+      if (!title || !bgColor || !textColor) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Validation 2: Check if bgColor and textColor are valid hex color codes.
+      const hexColorRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
+      if (!hexColorRegex.test(bgColor) || !hexColorRegex.test(textColor)) {
+        alert("Please enter valid hex color codes for background and text");
+        return;
+      }
+
       editor.model.change((writer) => {
-        editor.model.insertContent(writer.createText(abbr, { Button: title }));
+        editor.model.insertContent(writer.createText(title, { Button: `color:${textColor}; background-color: ${bgColor}` }));
       });
 
       // Hide the form view after submit.

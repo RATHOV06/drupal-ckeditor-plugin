@@ -29,8 +29,8 @@ export default class ButtonEditing extends Plugin {
       // and the DowncastWriter
       view: (modelAttributeValue, conversionApi) => {
         const { writer } = conversionApi;
-        return writer.createAttributeElement("abbr", {
-          title: modelAttributeValue,
+        return writer.createAttributeElement("button", {
+          style: modelAttributeValue,
         });
       },
     });
@@ -38,16 +38,16 @@ export default class ButtonEditing extends Plugin {
     // Conversion from a view element to a model attribute
     conversion.for("upcast").elementToAttribute({
       view: {
-        name: "abbr",
-        attributes: ["title"],
+        name: "button",
+        attributes: ["style"],
       },
       model: {
         key: "Button",
 
         // Callback function provides access to the view element
         value: (viewElement) => {
-          const title = viewElement.getAttribute("title");
-          return title;
+          const style = viewElement.getAttribute("style");
+          return style;
         },
       },
     });
