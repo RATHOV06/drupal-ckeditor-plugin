@@ -1,0 +1,33 @@
+{
+  "name": "ckeditor-custom-plugin",
+  "version": "1.0.0",
+  "description": "Creating custom plugin for drupal 10 migration",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build": "webpack --mode development"
+  },
+  "author": "test",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^40.0.0",
+    "@ckeditor/ckeditor5-core": "^40.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^39.2.0",
+    "@ckeditor/ckeditor5-editor-classic": "^40.0.0",
+    "@ckeditor/ckeditor5-essentials": "^40.0.0",
+    "@ckeditor/ckeditor5-heading": "^40.0.0",
+    "@ckeditor/ckeditor5-list": "^40.0.0",
+    "@ckeditor/ckeditor5-paragraph": "^40.0.0",
+    "@ckeditor/ckeditor5-theme-lark": "^40.0.0",
+    "@ckeditor/ckeditor5-ui": "^40.0.0",
+    "css-loader": "^5.2.7",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.2",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-inspector": "^4.1.0"
+  }
+}
