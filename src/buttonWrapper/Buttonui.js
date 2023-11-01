@@ -46,9 +46,28 @@ export default class ButtonUI extends Plugin {
       const title = formView.titleInputView.fieldView.element.value;
       const bgColor = formView.backgroundInputColorView.fieldView.element.value;
       const textColor = formView.titleInputColorView.fieldView.element.value;
+      const buttonSize = formView.buttonSizeView.fieldView.element.value.toUpperCase();
+      const defaultStyle = `border: 0px solid transparent;`;
+      const buttonSizeParameter = {
+        S: {
+          padding: "0.25rem 0.5rem",
+          fontSize: "1rem",
+          borderRadius: "0.25rem",
+        },
+        M: {
+          padding: "0.3rem 0.55rem",
+          fontSize: "1.25rem",
+          borderRadius: "0.5rem",
+        },
+        L: {
+          padding: "0.5rem 0.55rem",
+          fontSize: "1.5rem",
+          borderRadius: "0.75rem",
+        },
+      };
 
       // Validation 1: Check if values are not empty.
-      if (!title || !bgColor || !textColor) {
+      if (!title || !bgColor || !textColor || !buttonSize) {
         alert("Please fill in all fields");
         return;
       }
@@ -60,8 +79,17 @@ export default class ButtonUI extends Plugin {
         return;
       }
 
+      let validChars = /^[SML]$/;
+      if (!validChars.test(buttonSize)) {
+        alert("Valid input: S, M, or L");
+        return;
+      }
+      const buttonSizeStyling = `padding:${buttonSizeParameter[buttonSize].padding}; font-size: ${buttonSizeParameter[buttonSize].fontSize}; border-radius: ${buttonSizeParameter[buttonSize].borderRadius}`;
+
       editor.model.change((writer) => {
-        editor.model.insertContent(writer.createText(title, { Button: `color:${textColor}; background-color: ${bgColor}` }));
+        editor.model.insertContent(
+          writer.createText(title, { Button: `${defaultStyle} color:${textColor}; background-color: ${bgColor}; ${buttonSizeStyling}` })
+        );
       });
 
       // Hide the form view after submit.
@@ -98,6 +126,7 @@ export default class ButtonUI extends Plugin {
     this.formView.titleInputView.fieldView.value = "";
     this.formView.backgroundInputColorView.fieldView.value = "";
     this.formView.titleInputColorView.fieldView.value = "";
+    this.formView.buttonSizeView.fieldView.value = "";
     this.formView.element.reset();
 
     this._balloon.remove(this.formView);

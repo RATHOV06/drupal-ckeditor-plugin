@@ -13,7 +13,7 @@ export default class FormView extends View {
     this.titleInputView = this._createInput("Button text");
     this.backgroundInputColorView = this._createInput("Hex Color");
     this.titleInputColorView = this._createInput("Hex text Color");
-
+    this.buttonSizeView = this._createInput("Button size (Type: S/M/L)");
     this.saveButtonView = this._createButton("Save", icons.check, "ck-button-save");
     // Submit type of the button will trigger the submit event on entire form when clicked
     // (see submitHandler() in render() below).
@@ -24,7 +24,7 @@ export default class FormView extends View {
     // Delegate ButtonView#execute to FormView#cancel
     this.cancelButtonView.delegate("execute").to(this, "cancel");
 
-    this.childViews = this.createCollection([this.titleInputView, this.titleInputColorView, this.backgroundInputColorView, this.saveButtonView, this.cancelButtonView]);
+    this.childViews = this.createCollection([this.titleInputView, this.titleInputColorView, this.backgroundInputColorView, this.buttonSizeView, this.saveButtonView, this.cancelButtonView]);
 
     this.setTemplate({
       tag: "form",
