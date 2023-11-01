@@ -23,7 +23,7 @@ export default class ButtonUI extends Plugin {
     editor.ui.componentFactory.add("Button", () => {
       const button = new ButtonView();
 
-      button.label = "Button";
+      button.label = "Add Button";
       button.tooltip = true;
       button.withText = true;
 
