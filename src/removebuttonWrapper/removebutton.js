@@ -4,11 +4,10 @@
  */
 
 import { Plugin } from '@ckeditor/ckeditor5-core';
-import RemovebuttonEditing from './removebuttonediting';
 import RemovebuttonUI from './removebuttonui';
 
 export default class Removebutton extends Plugin {
 	static get requires() {
-		return [ RemovebuttonEditing, RemovebuttonUI ];
+		return [ RemovebuttonUI ];
 	}
 }

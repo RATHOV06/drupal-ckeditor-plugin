@@ -16,6 +16,7 @@ import Button from "./buttonWrapper/buttonWrapper";
 import Removebutton from "./removebuttonWrapper/removebutton";
 import Anchor from "./anchorWrapper/AnchorWrapper";
 import Popup from "./popupWrapper/PopupWrapper";
+import ".//styles.css";
 
 ClassicEditor.create(document.querySelector("#editor"), {
   plugins: [Essentials, Bold, Italic, Heading, List, Paragraph, Button, Removebutton, Anchor, Popup],

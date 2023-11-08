@@ -6,7 +6,6 @@
 import { Plugin } from "@ckeditor/ckeditor5-core";
 import { ButtonView, ContextualBalloon, clickOutsideHandler } from "@ckeditor/ckeditor5-ui";
 import FormView from "./AnchorView";
-import "../styles.css";
 
 export default class AnchorUI extends Plugin {
   static get requires() {

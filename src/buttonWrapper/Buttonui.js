@@ -6,7 +6,6 @@
 import { Plugin } from "@ckeditor/ckeditor5-core";
 import { ButtonView, ContextualBalloon, clickOutsideHandler } from "@ckeditor/ckeditor5-ui";
 import FormView from "./ButtonView";
-import "../styles.css";
 
 export default class ButtonUI extends Plugin {
   static get requires() {

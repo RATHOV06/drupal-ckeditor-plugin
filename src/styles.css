@@ -2,9 +2,16 @@
 	padding: var(--ck-spacing-large);
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(4, 1fr);
 	grid-column-gap: 0px;
 	grid-row-gap: var(--ck-spacing-standard);
+}
+
+.ck.ck-abbr-form {
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.ck.ck-abbr-form.ck-two-row {
+	grid-template-rows: repeat(2, 1fr);
 }
 
 .ck.ck-abbr-form .ck.ck-labeled-field-view:nth-of-type(1) {

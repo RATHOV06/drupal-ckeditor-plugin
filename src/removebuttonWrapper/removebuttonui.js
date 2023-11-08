@@ -3,40 +3,35 @@
  * For licensing, see LICENSE.md.
  */
 
-import { Plugin } from '@ckeditor/ckeditor5-core';
-import { ButtonView } from '@ckeditor/ckeditor5-ui';
-import { ContextualBalloon, clickOutsideHandler } from '@ckeditor/ckeditor5-ui';
-import '../styles.css';
+import { Plugin } from "@ckeditor/ckeditor5-core";
+import { ButtonView } from "@ckeditor/ckeditor5-ui";
 
 export default class RemovebuttonUI extends Plugin {
-	static get requires() {
-		return [ ContextualBalloon ];
-	}
+  init() {
+    const editor = this.editor;
+    editor.ui.componentFactory.add("removebutton", () => {
+      const button = new ButtonView();
 
-	init() {
-		const editor = this.editor;
-		editor.ui.componentFactory.add( 'removebutton', () => {
-			const button = new ButtonView();
+      button.label = "Remove Button";
+      button.tooltip = true;
+      button.withText = true;
 
-			button.label = 'Remove Button';
-			button.tooltip = true;
-			button.withText = true;
+      // Show the UI on button click.
+      this.listenTo(button, "execute", () => {
+        const selection = editor.model.document.selection;
+        //console.log(selection);
+        const range = selection.getFirstRange();
 
-			// Show the UI on button click.
-			this.listenTo( button, 'execute', () => {
-				const selection = editor.model.document.selection;
-				//console.log(selection);
-				const range = selection.getFirstRange();
+        for (const item of range.getItems()) {
+          editor.model.change((writer) => {
+            if (item.textNode._attrs.has("Button")) {
+              writer.remove(item);
+            }
+          });
+        }
+      });
 
-				for (const item of range.getItems()) {
-					editor.model.change( writer => {
-						console.log(item.textNode._attrs);
-						writer.remove(item);
-					});
-				}
-			} );
-
-			return button;
-		} );
-	}
+      return button;
+    });
+  }
 }
