@@ -18,7 +18,7 @@ export default class RemovebuttonUI extends Plugin {
 		editor.ui.componentFactory.add( 'removebutton', () => {
 			const button = new ButtonView();
 
-			button.label = 'Remove Colored Button';
+			button.label = 'Remove Button';
 			button.tooltip = true;
 			button.withText = true;
 

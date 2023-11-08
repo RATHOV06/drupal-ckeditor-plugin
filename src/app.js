@@ -14,10 +14,11 @@ import CKEditorInspector from "@ckeditor/ckeditor5-inspector";
 
 import Button from "./buttonWrapper/buttonWrapper";
 import Removebutton from "./removebuttonWrapper/removebutton";
+import Anchor from "./anchorWrapper/AnchorWrapper";
 
 ClassicEditor.create(document.querySelector("#editor"), {
-  plugins: [Essentials, Bold, Italic, Heading, List, Paragraph, Button, Removebutton],
-  toolbar: ["heading", "|", "bold", "italic", "numberedList", "bulletedList", "|", "Button", "Removebutton"],
+  plugins: [Essentials, Bold, Italic, Heading, List, Paragraph, Button, Removebutton, Anchor],
+  toolbar: ["heading", "|", "bold", "italic", "numberedList", "bulletedList", "|", "Button", "Removebutton", "|", "Anchor"],
 })
   .then((editor) => {
     console.log("Editor was initialized", editor);
