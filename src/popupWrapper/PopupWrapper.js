@@ -4,11 +4,11 @@
  */
 
 import { Plugin } from "@ckeditor/ckeditor5-core";
-import AnchorEditing from "./AnchorEditing";
-import AnchorUI from "./AnchorUi";
+import PopupEditing from "./PopupEditing";
+import PopupUI from "./PopupUi";
 
-export default class Anchor extends Plugin {
+export default class Popup extends Plugin {
   static get requires() {
-    return [AnchorEditing, AnchorUI];
+    return [PopupEditing, PopupUI];
   }
 }

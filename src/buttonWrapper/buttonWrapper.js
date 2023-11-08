@@ -4,8 +4,8 @@
  */
 
 import { Plugin } from "@ckeditor/ckeditor5-core";
-import ButtonEditing from "./Buttonediting";
-import ButtonUI from "./Buttonui";
+import ButtonEditing from "./ButtonEditing";
+import ButtonUI from "./ButtonUi";
 
 export default class Button extends Plugin {
   static get requires() {

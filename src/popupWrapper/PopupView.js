@@ -10,10 +10,10 @@ export default class FormView extends View {
   constructor(locale) {
     super(locale);
 
-    this.titleInputView = this._createInput("Anchor text");
-    this.attributeInputView = this._createInput("Anchor attribute");
+    this.titleInputView = this._createInput("Text with pop-up data-attribute");
+    this.attributeInputView = this._createInput("Popup data-attribute");
     this.saveButtonView = this._createButton("Save", icons.check, "ck-button-save");
-    // Submit type of the anchor will trigger the submit event on entire form when clicked
+    // Submit type of the popup will trigger the submit event on entire form when clicked
     // (see submitHandler() in render() below).
     this.saveButtonView.type = "submit";
 
@@ -37,7 +37,7 @@ export default class FormView extends View {
   render() {
     super.render();
 
-    // Submit the form when the user clicked the save anchor or pressed enter in the input.
+    // Submit the form when the user clicked the save popup or pressed enter in the input.
     submitHandler({
       view: this,
     });
